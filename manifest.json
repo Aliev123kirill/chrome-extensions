@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Ссылки t.me в приложение",
+  "version": "1.0.0",
+  "description": "Открывает ссылки t.me в приложении вместо браузера",
+  "minimum_chrome_version": "102",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Ссылки t.me открываются в приложении",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "permissions": [
+    "webNavigation",
+    "tabs",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "https://t.me/*",
+    "https://www.t.me/*",
+    "https://telegram.me/*",
+    "https://www.telegram.me/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
