@@ -73,7 +73,12 @@ async function ensureRule() {
   }
 }
 
-chrome.runtime.onInstalled.addListener(() => void ensureRule());
+chrome.runtime.onInstalled.addListener((details) => {
+  void ensureRule();
+  if (details.reason === 'install') {
+    chrome.tabs.create({ url: chrome.runtime.getURL('welcome.html') }, () => void chrome.runtime.lastError);
+  }
+});
 chrome.runtime.onStartup.addListener(() => void ensureRule());
 void ensureRule();
 
